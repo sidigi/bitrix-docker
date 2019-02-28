@@ -8,7 +8,7 @@ services:
     volumes:
       - ./app:/var/www/app
     ports:
-      - "8080:80"
+      - "80:80"
 
   php-fpm:
     build:
@@ -27,9 +27,9 @@ services:
     volumes:
       - ./storage/docker/mysql:/var/lib/mysql
     environment:
-      - "MYSQL_ROOT_PASSWORD=secret"
-      - "MYSQL_USER=bitrix"
-      - "MYSQL_PASSWORD=secret"
-      - "MYSQL_DATABASE=bitrix"
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
       - "33061:3306"

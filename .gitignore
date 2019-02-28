@@ -1,4 +1,5 @@
 .idea/
 app/*
+.env
 storage/
 !app/.gitkeep
