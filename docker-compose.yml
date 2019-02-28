@@ -9,6 +9,8 @@ services:
       - ./www:/var/www/bitrix
     ports:
       - "80:80"
+    depends_on:
+      - php-fpm
 
   php-fpm:
     build:
