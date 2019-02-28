@@ -8,7 +8,11 @@ RUN docker-php-ext-configure gd --with-gd --with-webp-dir --with-jpeg-dir \
 
 RUN docker-php-ext-install gd mysqli opcache
 
-ADD ./php/default.ini /usr/local/etc/php/conf.d/default.ini
+RUN pecl install xdebug-2.7.0beta1 \
+    && docker-php-ext-enable xdebug
+
+ADD ./php/php.ini /usr/local/etc/php/conf.d/php.ini
 ADD ./php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+ADD ./php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 WORKDIR /var/www/bitrix
