@@ -6,7 +6,7 @@ services:
       context: ./docker
       dockerfile: nginx.docker
     volumes:
-      - ./app:/var/www/app
+      - ./www:/var/www/bitrix
     ports:
       - "80:80"
 
@@ -15,7 +15,7 @@ services:
       context: ./docker
       dockerfile: php-fpm.docker
     volumes:
-      - ./app:/var/www/app
+      - ./www:/var/www/bitrix
       - ./storage/docker/sessions:/var/www/sessions
     depends_on:
       - mysql

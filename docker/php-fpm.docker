@@ -11,4 +11,4 @@ RUN docker-php-ext-install gd mysqli opcache
 ADD ./php/default.ini /usr/local/etc/php/conf.d/default.ini
 ADD ./php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
-WORKDIR /var/www/app
+WORKDIR /var/www/bitrix

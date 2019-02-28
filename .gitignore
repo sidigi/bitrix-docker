@@ -1,5 +1,5 @@
 .idea/
-app/*
+www/*
 .env
 storage/
-!app/.gitkeep
+!www/.gitkeep

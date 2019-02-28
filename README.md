@@ -1,3 +1,8 @@
+## В сборке
+- PHP 7.3 (opcache)
+- nginx 1.14
+- mysql 5.7
+
 ## Установка
 - Git
 ```
@@ -42,4 +47,4 @@ cp .env.example .env
 make up
 ```
 
-Bitrix проект нужно расположить в папке `app`
+Bitrix проект нужно расположить в папке `www`
