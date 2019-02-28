@@ -1,5 +1,5 @@
 ## В сборке
-- PHP 7.3 (opcache)
+- PHP 7.3 (opcache, xdebug)
 - nginx 1.14
 - mysql 5.7
 
