@@ -6,7 +6,7 @@ RUN docker-php-ext-configure gd --with-gd --with-webp-dir --with-jpeg-dir \
     --with-png-dir --with-zlib-dir --with-xpm-dir --with-freetype-dir \
     --enable-gd-native-ttf
 
-RUN docker-php-ext-install gd mysqli opcache
+RUN docker-php-ext-install gd mysqli opcache pdo pdo_mysql
 
 RUN pecl install xdebug-2.7.0beta1 \
     && docker-php-ext-enable xdebug
