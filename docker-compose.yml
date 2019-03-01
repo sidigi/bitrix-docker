@@ -11,6 +11,17 @@ services:
       - "80:80"
     depends_on:
       - php-fpm
+      - php-fpm-cli
+
+  php-fpm-cli:
+    build:
+      context: ./docker
+      dockerfile: php-fpm-cli.docker
+    volumes:
+      - ./www:/var/www/bitrix
+    depends_on:
+      - mysql
+    tty: true
 
   php-fpm:
     build:

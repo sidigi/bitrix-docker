@@ -1,0 +1,12 @@
+FROM php:7.3-fpm
+
+RUN apt-get update
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer --version
+
+ADD ./php/php.ini /usr/local/etc/php/conf.d/php.ini
+
+WORKDIR /var/www/bitrix
