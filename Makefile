@@ -5,10 +5,9 @@ docker-up:
 
 docker-clear:
 	docker-compose down --remove-orphans
-	sudo rm -rf www/bitrix
 
 permissions:
-	sudo chmod 777 www/bitrix
+	sudo chmod 777 www
 
 storage-permissions:
 	sudo chown 777 storage
