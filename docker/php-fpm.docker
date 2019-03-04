@@ -15,4 +15,6 @@ ADD ./php/php.ini /usr/local/etc/php/conf.d/php.ini
 ADD ./php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 ADD ./php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+RUN usermod -u 1000 www-data
+
 WORKDIR /var/www/bitrix
