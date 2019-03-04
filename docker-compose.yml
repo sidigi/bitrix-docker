@@ -30,6 +30,7 @@ services:
       dockerfile: php-fpm.docker
     volumes:
       - ./www:/var/www/bitrix
+      - ./storage/docker/logs/php/:/var/log/php/
     depends_on:
       - mysql
 
