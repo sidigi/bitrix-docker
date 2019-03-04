@@ -29,7 +29,6 @@ services:
       dockerfile: php-fpm.docker
     volumes:
       - ./www:/var/www/bitrix
-      - ./storage/docker/sessions:/var/www/sessions
     depends_on:
       - mysql
 
