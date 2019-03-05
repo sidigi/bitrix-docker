@@ -38,8 +38,6 @@ services:
     build:
       context: ./docker
       dockerfile: mysql.docker
-    volumes:
-      - ./storage/docker/mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
