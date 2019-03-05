@@ -3,7 +3,7 @@
 - nginx 1.14
 - mysql 5.7
 
-## Установка
+## Установка зависимостей
 - Git
 ```
 sudo apt-get install -y git
@@ -52,6 +52,8 @@ make up
 ```
 docker-compose up --build -d
 ```
+
+## Установка bitrix
 
 Bitrix проект нужно расположить в папке `www`
 
