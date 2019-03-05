@@ -15,9 +15,6 @@ bitrix-restore-download: perm
 bitrix-restore: bitrix-restore-download perm
 	docker-compose exec php-fpm-cli wget http://www.1c-bitrix.ru/download/scripts/restore.php -O restore.php
 
-bitrix-setup:
-	docker-compose exec php-fpm-cli wget http://www.1c-bitrix.ru/download/scripts/bitrixsetup.php
-
 composer:
 	docker-compose exec php-fpm-cli composer install
 
