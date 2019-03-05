@@ -47,4 +47,14 @@ cp .env.example .env
 make up
 ```
 
+или если нет поддержки Makefile:
+
+```
+docker-compose up --build -d
+```
+
 Bitrix проект нужно расположить в папке `www`
+
+Докер будет доступен по адресу `http://localhost`
+
+> При установке `bitrix` необходимо помнить что host базы данных `mysql`, а не традиционно `localhost`
