@@ -11,6 +11,15 @@ RUN docker-php-ext-install gd mysqli opcache pdo pdo_mysql
 RUN pecl install xdebug-2.7.0beta1 \
     && docker-php-ext-enable xdebug
 
+# Sendmail
+RUN apt-get update &&\
+    apt-get install --no-install-recommends --assume-yes --quiet ca-certificates curl git &&\
+    rm -rf /var/lib/apt/lists/*
+RUN curl -Lsf 'https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz' | tar -C '/usr/local' -xvzf -
+ENV PATH /usr/local/go/bin:$PATH
+RUN go get github.com/mailhog/mhsendmail
+RUN cp /root/go/bin/mhsendmail /usr/bin/mhsendmail
+
 ADD ./php/php.ini /usr/local/etc/php/conf.d/php.ini
 ADD ./php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 ADD ./php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
