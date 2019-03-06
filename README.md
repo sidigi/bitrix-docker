@@ -31,7 +31,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ## Начало работы
 - Склонируйте репозиторий bitrix-docker
 ```
-git clone git@github.com:sidigi/bitrix-docker.git
+git clone https://github.com/sidigi/bitrix-docker.git
 ```
 
 - Выполните настройку окружения
