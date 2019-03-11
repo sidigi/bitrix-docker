@@ -28,8 +28,7 @@ services:
     depends_on:
       - php-fpm
     networks:
-      bitrix:
-        ipv4_address: ${MEMCACHED_INTERFACE}
+      - bitrix
 
   redis:
     build:
