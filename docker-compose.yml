@@ -9,12 +9,27 @@ services:
       - ./www:/var/www/bitrix
       - ./storage/docker/logs/nginx/:/var/log/nginx/
     ports:
-      - "${NGINX_INTERFACE}:80:80"
+      - "80"
     depends_on:
       - php-fpm
       - php-fpm-cli
     networks:
-      - bitrix
+      bitrix:
+        ipv4_address: ${NGINX_INTERFACE}
+
+  memcached:
+    build:
+      context: ./docker
+      dockerfile: memcached.docker
+    volumes:
+      - ./storage/docker/memcached:/var/lib/memcached
+    ports:
+      - "11211"
+    depends_on:
+      - php-fpm
+    networks:
+      bitrix:
+        ipv4_address: ${MEMCACHED_INTERFACE}
 
   php-fpm-cli:
     build:
