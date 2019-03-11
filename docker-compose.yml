@@ -3,7 +3,7 @@ version: '3'
 services:
   nginx:
     build:
-      context: ./docker
+      context: ./docker/nginx
       dockerfile: nginx.docker
     volumes:
       - ./www:/var/www/bitrix
@@ -19,7 +19,7 @@ services:
 
   memcached:
     build:
-      context: ./docker
+      context: ./docker/memcached
       dockerfile: memcached.docker
     volumes:
       - ./storage/docker/memcached:/var/lib/memcached
@@ -31,9 +31,20 @@ services:
       bitrix:
         ipv4_address: ${MEMCACHED_INTERFACE}
 
+  redis:
+    build:
+      context: ./docker/redis
+      dockerfile: redis.docker
+    volumes:
+      - ./storage/docker/redis:/data
+    ports:
+      - "6379"
+    networks:
+      - bitrix
+
   php-fpm-cli:
     build:
-      context: ./docker
+      context: ./docker/php
       dockerfile: php-fpm-cli.docker
     volumes:
       - ./www:/var/www/bitrix
@@ -45,7 +56,7 @@ services:
 
   php-fpm:
     build:
-      context: ./docker
+      context: ./docker/php
       dockerfile: php-fpm.docker
     volumes:
       - ./www:/var/www/bitrix
@@ -57,7 +68,7 @@ services:
 
   mysql:
     build:
-      context: ./docker
+      context: ./docker/mysql
       dockerfile: mysql.docker
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
